@@ -312,7 +312,9 @@ const nextNode = function() {
  * Changes to the parent of the current node, removing any unvisited children.
  */
 const exitNode = function() {
-  clearUnvisitedDOM(currentParent, getNextNode(), null);
+  if (currentParent && !currentParent.$shadyDom) {
+    clearUnvisitedDOM(currentParent, getNextNode(), null);
+  }
 
   currentNode = currentParent;
   currentParent = currentParent.parentNode;
