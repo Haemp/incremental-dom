@@ -242,6 +242,11 @@ const alignWithDOM = function(nameOrCtor, key, typeId) {
     }
   }
 
+  // Mark element. This is to be able to determine whether
+  // this element is fully initiated on creation or if there
+  // are still changes coming 
+  node.$iDOMCreated = true;
+
   // Re-order the node into the right position, preserving focus if either
   // node or currentNode are focused by making sure that they are not detached
   // from the DOM.
